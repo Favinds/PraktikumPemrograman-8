@@ -1,63 +1,19 @@
 #include <iostream>
+
 using namespace std;
 
-
-//Fungsi untuk nilai operasi perkalian dari dua matrix
-int** matrixOperation(int** mat1, int** mat2) {
-	int** res = new int*[3];
-	for(int i = 0; i < 3; i++) {
-		res[i] = new int[3];
-		
-		for(int j = 0; j < 3; j++) {
-			int temp = 0;
-			
-			for(int k = 0; k < 3; k++) {
-				temp += mat1[i][k] * mat2[k][j];
-			}
-			
-			res[i][j] = temp;
+main()
+{
+	// v.Proses untuk menampilkan 5 baris dari 2 - 6
+	for (int i = 2; i <= 6; i++)
+	{ 	
+		// V.Proses untuk menampilkan 5 kolom tiap 1 baris
+		for (int j = 0; j < 5; j++)
+		{
+			// v.Proses untuk menampilkan nilai 
+			cout << i + j << " ";
 		}
+		cout << endl;
 	}
 	
-	return res;
-}
-
-main() {
-	int** mat1 = new int*[3];
-	int** mat2 = new int*[3];
-	
-	//Proses mengisi array matrix 1
-	cout<<"Masukkan matrix 1: "<<endl;
-	for(int i = 0; i < 3; i++) {
-		mat1[i] = new int[3];
-		
-		for(int j = 0; j < 3; j++) {
-			cin>>mat1[i][j];
-		}	
-	}
-	
-	cout<<endl;
-	
-	//Proses mengisi array matrix 2
-	cout<<"Masukkan matrix 2: "<<endl;
-	for(int i = 0; i < 3; i++) {
-		mat2[i] = new int[3];
-		
-		for(int j = 0; j < 3; j++) {
-			cin>>mat2[i][j];
-		}	
-	}
-	
-	cout<<endl<<"Hasil perkaliannya: "<<endl;
-	
-	//Proses memanggil fungsi untuk mendapatkan nilai perkaliannya
-	int** result = matrixOperation(mat1, mat2);
-	
-	//Display
-	for(int i = 0; i < 3; i++) {
-		for(int j = 0; j < 3; j++) {
-			cout<<result[i][j]<<" ";
-		}
-		cout<<endl;
-	}
 }
