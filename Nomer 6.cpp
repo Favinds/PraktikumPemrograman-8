@@ -1,42 +1,42 @@
 #include <iostream>
-
 using namespace std;
 
-main()
+//Fungsi untuk input array dan status bool
+float averagePositive(int input[10], bool status);
+
+int main()
 {
-	int n; // <- variable menyimpan nilai dari user
-	bool flip = false; // <- variable membuat nilai terbalik
+  int input[10];
 
-	// v.Inputan user
-	cout<<"masukkan nilai n : ";
-	cin >> n;
-	
-	// v.Deklarasi angka awal bernilai var n
-	int angka = n;
-	
-	
-	// v.Proses membuat baris dengan rumus 2n-1
-	for (int i = 0; i < (2*n-1); i++) 
-	{
-		// v.Proses membuat kolom dengan rumus 2n-1
-		for (int j = 1; j <= (2*n-1); j++)
-		{
-			cout << angka;
-		}
-	cout << endl;
-	
-	// v.Mengecek nilai, untuk naik jika angka = 1
-	if(angka == 1)
-		flip = !flip;
-	// v.Jika tidak flip (false)
-	if(!flip)
-		angka--; //<- Maka nilai menurun
-		
-	// v.Jika tidak	
-	else 
-		angka++; //<- Maka nilai menaik 
+//Proses untuk input angka oleh user
+  cout << "Masukkan Bilangan Pada Array = " << endl;
+  for (int i = 0; i < 10; i++) {
+    cin >> input[i];
+  }
 
-	}
+  cout << "Rata - Rata Angka Positif = " << averagePositive(input, true) << endl;
+  cout << "Rata - Rata Angka Negatif = " << averagePositive(input, false) << endl;
 }
 
+float averagePositive(int input[10], bool status)
+{
+  float positif = 0, negatif = 0, jumlahPos = 0, jumlahNeg = 0;
+  
+//Proses menghitung jumlah positif dan negatif
+  for (int i = 0; i < 10; i++) {
+    if (input[i] > 0) {
+      positif += input[i];
+      jumlahPos++;
+    } else {
+      negatif += input[i];
+      jumlahNeg++;
+    }
+  }
 
+  if (status) {
+    return positif / jumlahPos;
+  } else {
+    return negatif / jumlahNeg;
+	
+  }
+}

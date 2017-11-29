@@ -2,62 +2,44 @@
 
 using namespace std;
 
-main() 
-{
+//Fungsi untuk mengecek bilangan prima
+void generatePrime(int length);
 
-	// v. Variabel menyimpan nilai dari user
-	int n;
-	
-	// v. Variabel untuk merubah nilai yang awalnya menurun ke naik
-	bool flip = false;
-	
-	// v. Inputan user
-	cout<<"masukkan nilai n : ";
-	cin>>n;
-	
-	// v. Deklarasi angka awal bernilai var n
-	int angka = n;
-	
-	// v. Variabel pembantu
-	int k;
-	
-	// v. Proses pertama untuk membuat baris 
-	for(int i = 0; i < (2*n-1); i++) {
-		//Flip
-		if((2*n-1-i) == n - 1) {
-			flip = !flip;
-			k = n - 2;
-		}
-		
-		// v. Proses kedua untuk membuat kolom
-		for(int j = 0; j < (2*n-1); j++) {
-			// v. Proses naik dan turun
-			if(!flip) {
-				if(n - i <= n - j && j > 0) {
-					angka--;
-				}
-				else if(j >= (2*n-1) - i) {
-					angka++;
-				}
-			}
-			else {
-				if(n - k <= n - j && j > 0) {
-					angka--;
-				}
-				else if(j >= (2*n-1) - k) {
-					angka++;
-				}
-			}
-			cout<<angka;
-		}
-		
-		// v. Membuat baris baru 
-		cout<<endl;
-		
-		//Mereset nilai angka ke nilai n
-		angka = n;
-		
-		//Menurunkan variabel k
-		k--;
-	}
+int main()
+{
+  //Proses input panjang bilangan prima oleh user
+  	int panjang = 0;
+  	cout << "Masukkan Panjang Bilangan Prima = ";
+  	cin >> panjang;
+
+  generatePrime(panjang);
+}
+
+//Memanggil fungsi void diatas
+void generatePrime(int length)
+{
+	//Proses menentukan bilangan itu prima
+  int batas = 0, bil = 1, prima[length], jumBagi = 0;
+
+  while (batas < length) {
+    jumlahBagi = 0;
+
+    for (int i = 1; i <= bil; i++) {
+      if (bil % i == 0) {
+        jumlahBagi++;
+      }
+    }
+
+    if (jumlahBagi == 2) {
+      prima[batas] = bil;
+      batas++;
+    }
+
+    bil++;
+  }
+
+  cout << "Bilangan Prima = " << endl;
+  for (int i = 0; i < length; i++) {
+     cout << prima[i] << endl;
+  }
 }

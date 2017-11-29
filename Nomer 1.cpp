@@ -1,28 +1,43 @@
 #include <iostream>
-#include<iomanip> //<--- Library tambahan untuk menggunakan fungsi setw()
 using namespace std;
 
-main() {
 
-	// v.Proses pertama untuk menampilkan 10 baris
-	for(int i = 1; i <= 10; i++) {
-
-	// v.Proses kedua untuk menampilkan 10 kolom tiap 1 baris
-		for(int j = 1; j <= 10; j++) {
-			
-			
-			// v.Proses hasil perkalian i dan j untuk membentuk tabel perkalian
-			/*
-				Keterangan fungsi setw() :
-				setw() adalah satu fungsi manipulator yang digunakan untuk mengatur lebar tampilan dilayar dari suatu nilai.
-				
-				setw(4) berarti lebar tiap cout adalah 4 karakter,
-				sehingga output akan tersusun rapi
-			*/
-			cout<<setw(4)<<i * j;
-		}
-		
-		//Membuat baris baru 
-		cout<<endl;
+//Fungsi mencari nilai terbesar dari array
+int greatest(int angka[]) {
+	int terbesar;
+	
+	for(int i = 0; i < 10; i++) {
+		if(i == 0 || angka[i] > terbesar)
+			terbesar = angka[i];
 	}
+	
+	return terbesar;
+}
+
+//Fungsi mencari nilai terkecil dari array
+int smallest(int angka[]) {
+	int terkecil;
+	
+	for(int i = 0; i < 10; i++) {
+		if(i == 0 || angka[i] < terkecil)
+			terkecil = angka[i];
+	}
+	
+	return terkecil;
+}
+
+main() {
+	int angka[10];
+	
+	//Proses inisialisasi angka dalam array oleh user
+	for(int i = 0; i < 10; i++) {
+		cout<<"Masukkan angka ke- "<<i + 1<<": ";
+		cin>>angka[i];
+	}
+	
+	//Proses menampilkan nilai terbesar
+	cout<<"Angka Terbesar: "<<greatest(angka)<<endl;
+	
+	//Proses menampilkan nilai terkecil
+	cout<<"Angka Terkecil: "<<smallest(angka)<<endl;
 }
